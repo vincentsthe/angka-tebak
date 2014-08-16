@@ -26,7 +26,7 @@ define(['guesser', 'storage', 'jquery', 'testcase', 'notifier', 'textarea'],
 					notifier.createAlert("Anda Curang");
 					done = true;
 					$("#guess").html("Anda Curang!");
-				} else if(guesser.knowAnswer()) {
+				} else if(guesser.isHaveSuccessResponse()) {
 					done = true;
 					notifier.createAlert("Anda kalah!<br>Juri berhasil menebak angka anda.");
 					$("#guess").html("Anda Kalah!");

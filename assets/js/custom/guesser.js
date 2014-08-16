@@ -1,11 +1,13 @@
 define(['testcase'], function(testcase) {
 	var upperBound, lowerBound;
 	var remaining;
+	var haveSuccessResponse;
 	var guesser = {
 		initWithTC: function(numTC) {
 			upperBound = testcase.getNVariable(numTC);
 			lowerBound = 1;
 			remaining = testcase.getQVariable(numTC);
+			haveSuccessResponse = false;
 		},
 		nextGuess: function() {
 			var nextGuess = lowerBound + upperBound;
@@ -26,6 +28,7 @@ define(['testcase'], function(testcase) {
 				upperBound = input-1;
 			} else {
 				lowerBound = upperBound = input;
+				haveSuccessResponse = true;
 			}
 			remaining--;
 		},
@@ -47,6 +50,9 @@ define(['testcase'], function(testcase) {
 		},
 		getRemainingMove: function() {
 			return remaining;
+		},
+		isHaveSuccessResponse: function() {
+			return haveSuccessResponse;
 		},
 	};
 	return guesser;
