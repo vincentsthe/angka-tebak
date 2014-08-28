@@ -1,5 +1,5 @@
-define(['guesser', 'storage', 'jquery', 'testcase', 'notifier', 'textarea'], 
-	function(guesser, storage, $, testcase, notifier, textarea) {
+define(['guesser', 'storage', 'jquery', 'testcase', 'notifier', 'textarea', 'message'], 
+	function(guesser, storage, $, testcase, notifier, textarea, message) {
 	
 	$(document).ready(function() {
 		var done;
@@ -23,18 +23,18 @@ define(['guesser', 'storage', 'jquery', 'testcase', 'notifier', 'textarea'],
 			$("#guess").html('<i class="fa fa-spinner fa-spin"></i>');
 			setTimeout(function() {
 				if(guesser.isPlayerCheat()) {
-					notifier.createAlert("Anda Curang");
+					notifier.createAlert("You Cheat");
 					done = true;
-					$("#guess").html("Anda Curang!");
+					$("#guess").html("You Cheat!");
 				} else if(guesser.isHaveSuccessResponse()) {
 					done = true;
-					notifier.createAlert("Anda kalah!<br>Juri berhasil menebak angka anda.");
-					$("#guess").html("Anda Kalah!");
+					notifier.createAlert("You Lose!<br>Jury successfully guess your answer.");
+					$("#guess").html("You Lose!");
 				} else if(!guesser.haveRemainingMove()) {
 					done = true;
 					setSubtaskTrue(currentTC);
-					notifier.createAlert("Anda menang!<br>Juri tidak berhasil menebak angka anda.");
-					$("#guess").html("Anda Menang!");
+					notifier.createAlert("You Win!<br>Jury fail to guess your answer.");
+					$("#guess").html("You Win!");
 				} else {
 					var nextGuess = guesser.nextGuess();
 
@@ -69,6 +69,7 @@ define(['guesser', 'storage', 'jquery', 'testcase', 'notifier', 'textarea'],
 			lock = true;
 			doNextGuess();
 			textarea.reset();
+			textarea.insertLeft(testcase.getHeader(numTC));
 			textarea.insertLeft(guesser.getUpperBound() + " " + guesser.getRemainingMove());
 		};
 
@@ -90,6 +91,17 @@ define(['guesser', 'storage', 'jquery', 'testcase', 'notifier', 'textarea'],
 
 		$("#play").click(function() {
 			init($("#testcase").val());
+		});
+
+		$("#help").click(function() {
+			notifier.createText(message.help());
+		});
+		$("#about").click(function() {
+			notifier.createText(message.about());
+		});
+
+		$("#source").click(function() {
+			notifier.createSource(message.code());
 		});
 	});
 
