@@ -1,13 +1,13 @@
 define([], function() {
 	var tc = [];
-	tc[1] = [15, 3];
-	tc[2] = [31, 4];
-	header = [".1....", "..2..."];
+	tc[1] = [31, 4];
+	tc[2] = [127, 4];
+	header = ["", ".1....", "..2..."];
 
 	var answer = [
 		"",
-		"TERLALU BESAR\\nTERLALU KECIL\\nTERLALU BESAR\\n",
-		"TERLALU BESAR\\nTERLALU BESAR\\nTERLALU BESAR\\nTERLALU BESAR\\n"
+		"TERLALU BESAR\\nTERLALU BESAR\\nTERLALU BESAR\\nTERLALU BESAR\\n",
+		"TERLALU BESAR\\nTERLALU BESAR\\nTERLALU BESAR\\nTERLALU BESAR\\nTERLALU BESAR\\nTERLALU BESAR\\n"
 	];
 
 	var testcase = {

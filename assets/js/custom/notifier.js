@@ -80,7 +80,7 @@ define([], function() {
 
 			$("#notif-text").html(message);
 
-			$("#overlay").click(function() {
+			$("#notif-button").click(function() {
 				$("#overlay").remove();
 			});
 		}
