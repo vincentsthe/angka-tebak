@@ -101,7 +101,7 @@ define(['guesser', 'storage', 'jquery', 'testcase', 'notifier', 'textarea', 'mes
 		});
 
 		$("#source").click(function() {
-			notifier.createSource(message.code());
+			notifier.createSource(message.codeC(), message.codePas());
 		});
 	});
 

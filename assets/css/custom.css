@@ -162,6 +162,7 @@ select.form-control {
 	border: 1px solid #CCC;
 }
 
+
 #notif-button {
 	margin-top: 10px;
 	min-width: 100px;
@@ -177,4 +178,23 @@ select.form-control {
 	border: 1px solid #CCC;
 	max-height: 350px;
 	overflow-y: scroll;
+}
+	
+#notif-text div {
+	text-align: center;
+}
+
+#c-text, #pascal-text {
+	background-color: #FFF;
+	padding: 20px;
+	color: #000;
+	font-size: .9em;
+	text-align: left;
+	border: 1px solid #CCC;
+	max-height: 350px;
+	overflow-y: scroll;
+}
+
+.subtask {
+	cursor: default;
 }
